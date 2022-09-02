@@ -1,0 +1,10 @@
+
+<div>
+        <small> Posted by <i class="text-primary"><b>{{ forum.by }}</b></i> </small>       
+          <h6 class="card-title">{{ forum.title }}</h6>
+          <span class="">
+            <small  ngbTooltip="Points">{{ forum.score }} Points&nbsp; |</small>
+            <small  ngbTooltip="Time">&nbsp;{{ forum.time | date: 'hh:mm a' }}&nbsp; |</small>
+            <small  ngbTooltip="Comments">&nbsp;{{ forum.kids.length }} Comments</small>
+        </span>
+</div>

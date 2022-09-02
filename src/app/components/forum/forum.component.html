@@ -1,0 +1,32 @@
+<div class="list row">
+    <!--End of loading indicator-->
+
+    <div class="col-md-12">
+      <div class="card" *ngIf="forumList.length > 0">
+        <table class="table">
+          <tbody>
+            <!--Start of row per item-->
+            <tr class="clickable" (click)="goToDetail(data.id)" *ngFor="let data of forumList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize; index as i">
+              <td [ngClass]="{'first-row': i === 0}">
+                <!-- Render from angular component -->
+                <app-content [forum]="data" [isOnListPage]="true"></app-content>
+              </td>
+            </tr>
+            <!--End of row per item-->
+          </tbody>
+        </table>
+      </div>
+
+      
+      <div *ngIf="forumList.length === 0" class="card container text-center p-2">
+        <h5>No discussions available</h5>
+      </div>
+      
+
+      <!--Pagination-->
+      <div *ngIf="forumList.length > 0" class="d-flex justify-content-end mt-5">
+        <ngb-pagination [collectionSize]="forumList.length" [pageSize]="pageSize" [(page)]="page" [maxSize]="20" [rotate]="true" [ellipses]="false" [boundaryLinks]="false"></ngb-pagination>
+      </div>
+      <!--End of pagination indicator-->
+      
+</div>
